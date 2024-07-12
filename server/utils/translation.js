@@ -1,40 +1,33 @@
 // server/utils/translation.js
+
 const englishToAmharic = {
   a: "አ",
-  b: "ብ",
-  c: "ች",
-  d: "ድ",
-  e: "እ",
-  f: "ፍ",
-  g: "ግ",
-  h: "ሕ",
-  i: "ኢ",
-  j: "ጅ",
-  k: "ክ",
-  l: "ል",
-  m: "ም",
-  n: "ን",
-  o: "ኦ",
-  p: "ፕ",
-  q: "ቅ",
-  r: "ር",
-  s: "ስ",
-  t: "ት",
-  u: "ኡ",
-  v: "ቭ",
-  w: "ዉ",
-  x: "ክስ",
-  y: "ይ",
-  z: "ዝ",
-  // TODO Add multi-letter combinations
- 
+  b: "በ",
+  c: "ቸ",
+  hu: "ሁ",
+  hi: "ሂ",
+  ga: "ጋ",
+  // Add all necessary mappings
 };
 
 const translateText = (text) => {
   let translatedText = "";
-  for (let char of text) {
-    translatedText += englishToAmharic[char] || char;
+  let i = 0;
+
+  while (i < text.length) {
+    // Check if there is a pair of letters that match
+    if (i + 1 < text.length && englishToAmharic[text.slice(i, i + 2)]) {
+      translatedText += englishToAmharic[text.slice(i, i + 2)];
+      i += 2;
+    } else if (englishToAmharic[text[i]]) {
+      translatedText += englishToAmharic[text[i]];
+      i += 1;
+    } else {
+      translatedText += text[i];
+      i += 1;
+    }
   }
+
   return translatedText;
 };
 
