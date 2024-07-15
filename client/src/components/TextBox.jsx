@@ -5,7 +5,7 @@ const TextBox = ({ onChange }) => {
   return (
     <input
       type="text"
-      placeholder="Type in English..."
+      placeholder="Type Amharic in English Letters"
       className="text-box"
       onChange={(e) => onChange(e.target.value)}
     />

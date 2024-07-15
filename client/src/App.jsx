@@ -1,8 +1,8 @@
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 import TextBox from "./components/TextBox";
 import AmharicDisplay from "./components/AmharicDisplay";
+import "./App.css";
 
 const App = () => {
   const [englishText, setEnglishText] = useState("");
@@ -23,9 +23,14 @@ const App = () => {
   }, [englishText]);
 
   return (
-    <div>
-      <TextBox onChange={setEnglishText} />
-      <AmharicDisplay text={amharicText} />
+    <div className="app-container">
+      <header>
+        <h1>English Letters to Amharic</h1>
+      </header>
+      <main>
+        <TextBox onChange={setEnglishText} />
+        <AmharicDisplay text={amharicText} />
+      </main>
     </div>
   );
 };
