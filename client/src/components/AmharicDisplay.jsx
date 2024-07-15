@@ -1,8 +1,8 @@
-
+import "../styles/AmharicDisplay.css"
 import PropTypes from "prop-types";
 
 const AmharicDisplay = ({ text }) => {
-  return <div>{text}</div>;
+  return <div className="amharic-display">{text}</div>;
 };
 
 AmharicDisplay.propTypes = {
